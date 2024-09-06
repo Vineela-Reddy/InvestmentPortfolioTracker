@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Portfolio Tracker</title>
+    <link rel="stylesheet" href="InvestmentPortfolioTracker.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Investment Portfolio Tracker</h1>
+        <div id="total-value">
+            <h2>Total Portfolio Value: $<span id="total-value-amount">0</span></h2>
+        </div>
+
+        <button id="add-investment-btn" onclick="openAddInvestmentModal()">Add New Investment</button>
+
+        <div id=" investment-list">
+            <h2>Investment List:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset Name</th>
+                        <th>Invested</th>
+                        <th>Current</th>
+                        <th>% Change</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="investment-list-body">
+                    <!-- Investment items will be added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="pie-chart-container">
+            <h2>Portfolio Distribution</h2>
+            <canvas id="pie-chart"></canvas>
+        </div>
+    </div>
+
+    <div id="add-investment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-add-investment" onclick="closeAddInvestmentModal()">&times;</span>
+            <h2>Add New Investment</h2>
+            <form id="add-investment-form">
+                <input type="hidden" id="investment-id">
+                <label for="asset-name">Asset Name:</label>
+                <input type="text" id="asset-name" required>
+
+                <label for="amount-invested">Amount Invested:</label>
+                <input type="number" id="amount-invested" step="0.01" required>
+
+                <label for="current-value">Current Value:</label>
+                <input type="number" id="current-value" step="0.01" required>
+
+                <button type="submit" onclick="addInvestment()">Add Investment</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="InvestmentportfolioTracker.js"></script>
+</body>
+
+</html>
